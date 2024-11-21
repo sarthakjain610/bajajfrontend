@@ -16,16 +16,14 @@ const App = () => {
   ];
 
   const handleSubmit = async () => {
-    setError(null); // Reset any previous error
+    setError(null);
 
     try {
-      const parsedJson = JSON.parse(apiInput); // Validate JSON input
-
-      // Call your Django backend
-      const response = await axios.post("https://bajaj-flpw.onrender.com/bfhl/", parsedJson); // Adjust the URL to match your backend endpoint
-      setResponse(response.data); // Set the API response
+      const parsedJson = JSON.parse(apiInput);
+      const response = await axios.post("https://bajaj-3i9l.onrender.com/bfhl/", parsedJson);
+      setResponse(response.data);
     } catch (err) {
-      // Error handling for invalid JSON or API issues
+
       if (err.response) {
         setError(`API Error: ${err.response.data.message || "Something went wrong"}`);
       } else if (err instanceof SyntaxError) {
